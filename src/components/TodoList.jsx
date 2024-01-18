@@ -1,7 +1,6 @@
 import React from "react";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 function Todolist(props) {
   // const [editText,setEditText] = useState('');
   // const handleEdit = (editText,e)=>{
@@ -10,10 +9,12 @@ function Todolist(props) {
   //         setEditText("")
   //   }
   // }
+  const handleChange = () => {
+    props.setCheck(!props.checked)
+  }
   return (
     <li className="list-item">
-      <CheckBoxOutlineBlankIcon
-       ></CheckBoxOutlineBlankIcon>
+      <input type="checkbox" name="" id="" checked={props.checked} onChange={handleChange}/>
        {/*   <input
         type="text"
         className="input-box-todo"
@@ -24,7 +25,7 @@ function Todolist(props) {
         }}
         onKeyDown={handleEnterPress}
       /> */}
-      {props.item}
+      <span style={{textDecoration:props.checked?"line-through":"none"}}>{props.item} </span>
       <span className='icons'>
         <EditIcon
         onClick={() => props.editListItem(props.index, props.item)}
