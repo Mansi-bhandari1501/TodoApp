@@ -8,7 +8,6 @@ function TodoInput(props) {
         type="text"
         className="input-box-todo"
         placeholder="Enter your todo"
-        value={props.value}
         onChange={e=> props.onChange(e)}
         onKeyDown={props.onClick}
       />
